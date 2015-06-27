@@ -15,21 +15,21 @@ comments: true
 
 To redirect all http requests to https:
 
-```sh
+{% highlight bash %}
 server {
     listen 80;
     rewrite ^/(.*) https://$host$request_uri permanent;
 }
-```
+{% endhighlight %}
 
 
 to remove sub domain from request and redirect to domain:
 
-```sh
+{% highlight bash %}
 server {
   if ($host ~* (.*)\.(domain\.com)){
       set $host_without_subdomain $2;
       rewrite ^(.*)$ https://$host_without_subdomain$1 permanent;
   }
 }
-```
+{% endhighlight %}
