@@ -10,16 +10,42 @@
   }
   .wrap {
     text-align: center;
-    max-width: em(440);
+    max-width: em(540);
     padding-right: 20px;
     padding-left: 20px;
     @include media($medium) {
-      max-width: em(728);
+      max-width: em(1028);
       padding-right: 60px;
       padding-left: 60px;
     }
     @include media($large) {
-      max-width: em(960);
+      max-width: em(1040);
+    }
+  }
+  .wrap-desc {
+    text-align: center;
+    display: table;
+    max-width: em(540);
+    position: relative;
+    left: 100px;
+    padding-right: 20px;
+    padding-left: 20px;
+    @include media($medium) {
+      max-width: em(1028);
+      padding-right: 60px;
+      padding-left: 60px;
+    }
+    @include media($large) {
+      max-width: em(1040);
+    }
+    .title_description{
+      display: table-cell;
+      vertical-align: bottom;
+      top: 25%;
+      color: #000077;
+      h2{
+        margin-bottom: 5px;
+      }
     }
   }
 }
