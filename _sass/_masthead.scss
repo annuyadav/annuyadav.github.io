@@ -27,24 +27,28 @@
     display: table;
     max-width: em(540);
     position: relative;
-    left: 100px;
+    left: 0;
     padding-right: 20px;
     padding-left: 20px;
     @include media($medium) {
       max-width: em(1028);
       padding-right: 60px;
       padding-left: 60px;
+      left: 100px;
     }
     @include media($large) {
       max-width: em(1040);
     }
     .title_description{
-      display: table-cell;
+      display: block;
       vertical-align: bottom;
       top: 25%;
       color: #000077;
       h2{
         margin-bottom: 5px;
+      }
+      @include media($medium) {
+        display: table-cell;
       }
     }
   }
