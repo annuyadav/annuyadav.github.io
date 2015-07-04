@@ -34,16 +34,10 @@ s3_client.create_bucket({
 
 then copy the files from previous bucket to new bucket by:
 
-def copy_file(bucket_name=rails_bucket_name, source_key, destination_key)
-    s3.copy_object({bucket: bucket_name, copy_source: "#{bucket_name}/#{source_key}", key: destination_key})
-  end
-
-
 {% highlight ruby %}
-    s3_client.list_objects({bucket: 'SourceBucketName'}).each do |obj|
-      _key = obj.key
-      s3_client.copy_object({bucket: 'DestinationBucketName', copy_source: "/#{obj.key}", key: "DestinationBucketName/#{obj.key}"})
-    end
+s3_client.list_objects({bucket: 'SourceBucketName'}).each do |obj|
+   s3_client.copy_object({bucket: 'DestinationBucketName', copy_source: "/#{obj.key}", key: "DestinationBucketName/#{obj.key}"})
+end
 {% endhighlight %}
 
 s3_client.list_objects will return only 1000 objects. So if you have more than 1000 files then repeate the process until all files are copied.
@@ -51,8 +45,8 @@ s3_client.list_objects will return only 1000 objects. So if you have more than 1
 After copying the files to destination path destroy the old bucket by first destroying all objects of bucket followed by destroying bucket.
 
 {% highlight ruby %}
-    obj_arr = s3_client.list_objects({bucket: bucket_name}).contents.collect{|obj| {key: obj.key}}
-    s3_client.delete_objects({bucket: 'SourceBucketName', delete: {objects: obj_arr, quiet: true}})
+obj_arr = s3_client.list_objects({bucket: bucket_name}).contents.collect{|obj| {key: obj.key}}
+s3_client.delete_objects({bucket: 'SourceBucketName', delete: {objects: obj_arr, quiet: true}})
 {% endhighlight %} 
   
 Destroy bucket:
