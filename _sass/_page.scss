@@ -23,10 +23,10 @@
 	margin: 20px 0 0;
 	width: 100%;
 	@include media($medium) {
-		margin-top: -75px; /* move up to be overlapped by site logo */
+		margin-top: -85px; /* move up to be overlapped by site logo */
 	}
 	@include media($large) {
-		margin-top: -145px; /* move up further to be overlapped by site logo */
+		margin-top: -165px; /* move up further to be overlapped by site logo */
 	}
 }
 
@@ -168,6 +168,10 @@ span + .entry-title {
 			border-bottom-style: solid;
 		}
 	}
+  .about_me{
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 /*
