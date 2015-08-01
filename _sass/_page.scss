@@ -20,13 +20,13 @@
 /* feature image */
 
 .entry-feature-image {
-	margin: 20px 0 0;
+	margin: -120px 0 0;
 	width: 100%;
 	@include media($medium) {
-		margin-top: -85px; /* move up to be overlapped by site logo */
+		margin-top: -170px; /* move up to be overlapped by site logo */
 	}
 	@include media($large) {
-		margin-top: -165px; /* move up further to be overlapped by site logo */
+		margin-top: -220px; /* move up further to be overlapped by site logo */
 	}
 }
 
